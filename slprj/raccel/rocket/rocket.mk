@@ -78,7 +78,7 @@ TOOLCHAIN_NAME = ["Xcode with Clang | gmake (64-bit Mac)", \
 #                            and do not build an executable
 
 MODEL                   = rocket
-MODULES                 = rocket.c rocket_capi.c rocket_data.c rocket_tgtconn.c rtGetInf.c rtGetNaN.c rt_nonfinite.c rt_logging_mmi_simtarget.c rtw_modelmap_utils_simtarget.c raccel_main.c raccel_sup.c raccel_mat.c simulink_solver_api.c raccel_utils.c common_utils.c ext_svr.c updown.c ext_work.c rtiostream_interface.c rtiostream_tcpip.c rtiostream_utils.c
+MODULES                 = rocket.c rocket_capi.c rocket_data.c rocket_tgtconn.c rtGetInf.c rtGetNaN.c rt_nonfinite.c rt_zcfcn.c rt_logging_mmi_simtarget.c rtw_modelmap_utils_simtarget.c raccel_main.c raccel_sup.c raccel_mat.c simulink_solver_api.c raccel_utils.c common_utils.c ext_svr.c updown.c ext_work.c rtiostream_interface.c rtiostream_tcpip.c rtiostream_utils.c
 PRODUCT                 = rocket
 MAKEFILE                = rocket.mk
 MATLAB_ROOT             = /usr/local/MATLAB/R2022b
@@ -86,7 +86,7 @@ ALT_MATLAB_ROOT         = /usr/local/MATLAB/R2022b
 START_DIR               = /home/tn/MATLAB/ROCKET
 S_FUNCTIONS_LIB         = 
 NUMST                   = 2
-NCSTATES                = 0
+NCSTATES                = 26
 COMPUTER                = GLNXA64
 BUILDARGS               =  RSIM_SOLVER_SELECTION=2 PCMATLABROOT="/usr/local/MATLAB/R2022b" EXTMODE_STATIC_ALLOC=0 EXTMODE_STATIC_ALLOC_SIZE=1000000 EXTMODE_TRANSPORT=0 TMW_EXTMODE_TESTING=0 RSIM_PARAMETER_LOADING=1 OPTS="-DTGTCONN -DIS_SIM_TARGET -DNRT -DRSIM_PARAMETER_LOADING -DRSIM_WITH_SL_SOLVER -DENABLE_SLEXEC_SSBRIDGE=1 -DMODEL_HAS_DYNAMICALLY_LOADED_SFCNS=0 -DON_TARGET_WAIT_FOR_START=0 -DTID01EQ=0"
 MULTITASKING            = 0

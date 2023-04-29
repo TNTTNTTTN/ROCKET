@@ -1,9 +1,443 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <MF0 version="1.1" packageUris="http://schema.mathworks.com/mf0/SlsaMaskTree/R2020a">
-  <slsa.mm.maskTree.MaskTree type="slsa.mm.maskTree.MaskTree" uuid="b4fe6da4-61f8-45ff-8dc5-18726869fbad">
-    <maskedBlocks type="slsa.mm.maskTree.MaskedBlock" uuid="e9f44435-005a-406b-8178-1b53905b1dad">
+  <slsa.mm.maskTree.MaskTree type="slsa.mm.maskTree.MaskTree" uuid="a25379a8-65bb-43d7-85bc-d410f0b5919b">
+    <maskedBlocks type="slsa.mm.maskTree.MaskedBlock" uuid="ac486e7b-fe3f-4794-9d4a-c619ae0059b1">
+      <blockPath>rocket/Acceleration Conversion/Low-Pass Filter (Discrete or Continuous)</blockPath>
+      <childrenIds>rocket:395:110</childrenIds>
+      <childrenIds>rocket:395:335</childrenIds>
+      <childrenIds>rocket:395:99</childrenIds>
+      <id>rocket:395</id>
+      <masks type="slsa.mm.maskTree.Mask" uuid="917e3ee3-c017-4292-be6c-12bdac909861">
+        <dialogParameters type="slsa.mm.maskTree.DialogParameterInfo" uuid="61d20628-d8ea-4571-acbe-9de3e6c3c1e6">
+          <evaluate>true</evaluate>
+          <expression>1</expression>
+          <isTunable>true</isTunable>
+          <name>K</name>
+        </dialogParameters>
+        <dialogParameters type="slsa.mm.maskTree.DialogParameterInfo" uuid="e2251a9c-7f83-4538-8ce4-ad6339336f6b">
+          <evaluate>true</evaluate>
+          <expression>1</expression>
+          <isTunable>true</isTunable>
+          <name>T</name>
+        </dialogParameters>
+        <dialogParameters type="slsa.mm.maskTree.DialogParameterInfo" uuid="76989fc2-4504-42ab-96a7-b46dd4fde28e">
+          <evaluate>true</evaluate>
+          <expression>inf</expression>
+          <isTunable>true</isTunable>
+          <name>B</name>
+        </dialogParameters>
+        <dialogParameters type="slsa.mm.maskTree.DialogParameterInfo" uuid="0bb6b228-1e90-410b-9b4c-afb5fae6b3b8">
+          <evaluate>true</evaluate>
+          <expression>-inf</expression>
+          <isTunable>true</isTunable>
+          <name>A</name>
+        </dialogParameters>
+        <dialogParameters type="slsa.mm.maskTree.DialogParameterInfo" uuid="6cd607ab-94aa-4be1-83e1-d322913e4ac7">
+          <evaluate>true</evaluate>
+          <expression>1</expression>
+          <isTunable>true</isTunable>
+          <name>init_option</name>
+        </dialogParameters>
+        <dialogParameters type="slsa.mm.maskTree.DialogParameterInfo" uuid="acd3d23b-8661-46a5-af9b-1b2726198c33">
+          <evaluate>true</evaluate>
+          <expression>0</expression>
+          <isTunable>true</isTunable>
+          <name>x0</name>
+        </dialogParameters>
+        <dialogParameters type="slsa.mm.maskTree.DialogParameterInfo" uuid="2c6c6887-ce2b-4ec5-9b8f-8e2e90cd80be">
+          <evaluate>true</evaluate>
+          <expression>0</expression>
+          <isTunable>true</isTunable>
+          <name>Ts</name>
+        </dialogParameters>
+        <initializationCode>timeDomain = ee.mask.initializeLowPassFilter(T,B,A,Ts);
+
+ee.mask.callbackPopupInitialization(gcb);</initializationCode>
+        <skipInitializationCode>true</skipInitializationCode>
+      </masks>
+      <parentId>root</parentId>
+    </maskedBlocks>
+    <maskedBlocks type="slsa.mm.maskTree.MaskedBlock" uuid="e737e612-205a-4966-bd1e-7c5bac075748">
+      <blockPath>rocket/Acceleration Conversion/Low-Pass Filter (Discrete or Continuous)/Integrator (Discrete or Continuous)</blockPath>
+      <id>rocket:395:110</id>
+      <masks type="slsa.mm.maskTree.Mask" uuid="029b26a9-6838-43f2-9a69-965cf20c024f">
+        <cachedVariables type="slsa.mm.maskTree.Variable" uuid="9dff1b69-9491-4647-a7b3-93210456bc19">
+          <name>antiwindupLowerLimit</name>
+          <value>AAFJTQAAAAAOAAAAOAAAAAYAAAAIAAAABgAAAAAAAAAFAAAACAAAAAEAAAABAAAAAQAAAAAAAAAJAAAACAAAAAAAAAAAAPD/</value>
+        </cachedVariables>
+        <cachedVariables type="slsa.mm.maskTree.Variable" uuid="4d6fa149-8c2e-4cca-9935-26127777adb2">
+          <name>antiwindupUpperLimit</name>
+          <value>AAFJTQAAAAAOAAAAOAAAAAYAAAAIAAAABgAAAAAAAAAFAAAACAAAAAEAAAABAAAAAQAAAAAAAAAJAAAACAAAAAAAAAAAAPB/</value>
+        </cachedVariables>
+        <cachedVariables type="slsa.mm.maskTree.Variable" uuid="3f8c7c03-bb4f-40e4-9e41-f3a54bf11601">
+          <name>windupLowerLimit</name>
+          <value>AAFJTQAAAAAOAAAAOAAAAAYAAAAIAAAABgAAAAAAAAAFAAAACAAAAAEAAAABAAAAAQAAAAAAAAAJAAAACAAAAAAAAAAAAPD/</value>
+        </cachedVariables>
+        <cachedVariables type="slsa.mm.maskTree.Variable" uuid="037a6d4f-4a57-46f3-bc44-af6f6e83ddce">
+          <name>windupUpperLimit</name>
+          <value>AAFJTQAAAAAOAAAAOAAAAAYAAAAIAAAABgAAAAAAAAAFAAAACAAAAAEAAAABAAAAAQAAAAAAAAAJAAAACAAAAAAAAAAAAPB/</value>
+        </cachedVariables>
+        <dialogParameters type="slsa.mm.maskTree.DialogParameterInfo" uuid="20649c39-83f1-47a1-ac11-6f3ebc9f3d49">
+          <evaluate>true</evaluate>
+          <expression>4</expression>
+          <isTunable>true</isTunable>
+          <name>ExternalReset</name>
+        </dialogParameters>
+        <dialogParameters type="slsa.mm.maskTree.DialogParameterInfo" uuid="fe2c1d3e-4372-4a9c-8f66-59107f710085">
+          <evaluate>true</evaluate>
+          <expression>1</expression>
+          <isTunable>true</isTunable>
+          <name>LimitType</name>
+        </dialogParameters>
+        <dialogParameters type="slsa.mm.maskTree.DialogParameterInfo" uuid="1c5b0a4c-82ea-43c2-a4b7-a26a00c6d598">
+          <evaluate>true</evaluate>
+          <expression>B</expression>
+          <isTunable>true</isTunable>
+          <name>B</name>
+          <referencedVariables type="slsa.mm.maskTree.Variable" uuid="a617ab48-c73e-4b2d-8647-c5be27dddef4">
+            <name>B</name>
+            <value></value>
+            <workspace>rocket:395</workspace>
+          </referencedVariables>
+        </dialogParameters>
+        <dialogParameters type="slsa.mm.maskTree.DialogParameterInfo" uuid="2a27bd46-ef16-4356-9f0c-a602be53194c">
+          <evaluate>true</evaluate>
+          <expression>A</expression>
+          <isTunable>true</isTunable>
+          <name>A</name>
+          <referencedVariables type="slsa.mm.maskTree.Variable" uuid="f40c8da3-b1eb-40ea-bd0a-ea99bdb2e31e">
+            <name>A</name>
+            <value></value>
+            <workspace>rocket:395</workspace>
+          </referencedVariables>
+        </dialogParameters>
+        <dialogParameters type="slsa.mm.maskTree.DialogParameterInfo" uuid="4c1056c6-14b8-4156-86de-0816d620ab1c">
+          <evaluate>true</evaluate>
+          <expression>Ts</expression>
+          <isTunable>true</isTunable>
+          <name>Ts</name>
+          <referencedVariables type="slsa.mm.maskTree.Variable" uuid="2a560b3c-164d-411c-bb4a-163fdb32c7af">
+            <name>Ts</name>
+            <value></value>
+            <workspace>rocket:395</workspace>
+          </referencedVariables>
+        </dialogParameters>
+        <initializationCode>[timeDomain,antiwindupUpperLimit,antiwindupLowerLimit,windupUpperLimit,windupLowerLimit] = ee.mask.initializeIntegrator(gcb,LimitType,B,A,Ts);
+ee.mask.initializeIntegratorReset(gcb,ExternalReset,Ts);
+</initializationCode>
+      </masks>
+      <parentId>rocket:395</parentId>
+    </maskedBlocks>
+    <maskedBlocks type="slsa.mm.maskTree.MaskedBlock" uuid="c6c4db13-962c-4846-a075-9b315f394efc">
+      <blockPath>rocket/Acceleration Conversion/Low-Pass Filter (Discrete or Continuous)/Enable//disable time constant/Compare To Constant</blockPath>
+      <id>rocket:395:335</id>
+      <masks type="slsa.mm.maskTree.Mask" uuid="38109857-5ecf-4d9f-95b9-e8e4373df580">
+        <dialogParameters type="slsa.mm.maskTree.DialogParameterInfo" uuid="d32bfb31-bc81-4fc7-880d-9fdc82d37d5e">
+          <expression>&lt;</expression>
+          <name>relop</name>
+        </dialogParameters>
+        <dialogParameters type="slsa.mm.maskTree.DialogParameterInfo" uuid="760f1045-782e-40e5-a6bc-0b92fae78f26">
+          <evaluate>true</evaluate>
+          <expression>2</expression>
+          <isTunable>true</isTunable>
+          <name>const</name>
+        </dialogParameters>
+        <dialogParameters type="slsa.mm.maskTree.DialogParameterInfo" uuid="dc0a11d2-cb53-43dc-ba19-e357b4b28278">
+          <expression>boolean</expression>
+          <name>OutDataTypeStr</name>
+        </dialogParameters>
+        <dialogParameters type="slsa.mm.maskTree.DialogParameterInfo" uuid="0c40b8ef-e1a1-44c2-b823-ac45d0dc7e9c">
+          <expression>on</expression>
+          <name>ZeroCross</name>
+        </dialogParameters>
+        <initializationCode>blkName = gcb;
+
+if strcmp(get_param(gcbh,&apos;OutDataTypeStr&apos;),&apos;boolean&apos;)
+	setValue = &apos;boolean&apos;;
+else
+	setValue = &apos;fixdt(0, 8, 0)&apos;;
+end
+
+set_param([blkName,&apos;/Compare&apos;],&apos;relop&apos;,relop, ...
+	&apos;OutDataTypeStr&apos;, setValue, &apos;ZeroCross&apos;, ZeroCross);
+
+str = [relop,&apos; C&apos;]; %default
+
+const_str = get_param(blkName, &apos;const&apos;);
+const_val = str2num(const_str);
+
+if isempty(const_val) %#ok&lt;ST2NM&gt;
+    %Expression/Variable
+    str = [relop, &apos; &apos;, strtrim(const_str)];
+else
+    if length(const_val) == 1 
+        if Simulink.data.isSupportedEnumClass(class(const_val))
+            % Special Handling for Enumerations
+            if Simulink.data.getEnumTypeInfo(class(const_val), &apos;AddClassNameToEnumNames&apos;)
+                str = [relop, &apos; &apos;, strtrim(const_str)];
+            else
+                str = [relop, &apos; &apos;, char(const_val)];
+            end
+        elseif(isfloat(const_val) || isinteger(const_val) || islogical(const_val)) 
+                str = [relop, &apos; &apos;, num2str(const_val)];
+        end
+    end
+end</initializationCode>
+        <skipInitializationCode>true</skipInitializationCode>
+      </masks>
+      <parentId>rocket:395</parentId>
+    </maskedBlocks>
+    <maskedBlocks type="slsa.mm.maskTree.MaskedBlock" uuid="ef7fc341-80c8-4e89-8dd1-eaf8cf321573">
+      <blockPath>rocket/Acceleration Conversion/Low-Pass Filter (Discrete or Continuous)/Enable//disable time constant/Compare To Zero</blockPath>
+      <id>rocket:395:99</id>
+      <masks type="slsa.mm.maskTree.Mask" uuid="eb002adf-a3f0-45d9-b757-bd48f60a53f1">
+        <dialogParameters type="slsa.mm.maskTree.DialogParameterInfo" uuid="dee6f1de-6f74-4236-b9d5-3065758b0cdf">
+          <expression>&lt;=</expression>
+          <name>relop</name>
+        </dialogParameters>
+        <dialogParameters type="slsa.mm.maskTree.DialogParameterInfo" uuid="b47dfd49-8ab3-4c69-94e1-686861ec4f9e">
+          <expression>boolean</expression>
+          <name>OutDataTypeStr</name>
+        </dialogParameters>
+        <dialogParameters type="slsa.mm.maskTree.DialogParameterInfo" uuid="cf58f10a-cfec-4f92-b96b-7fa0fda19e19">
+          <expression>on</expression>
+          <name>ZeroCross</name>
+        </dialogParameters>
+        <initializationCode>blkName = gcb;
+
+if strcmp(get_param(gcbh,&apos;OutDataTypeStr&apos;),&apos;boolean&apos;)
+	setValue = &apos;boolean&apos;;
+else
+    setValue = &apos;fixdt(0, 8, 0)&apos;;
+end
+
+set_param([blkName,&apos;/Compare&apos;],&apos;relop&apos;,relop, ...
+	&apos;OutDataTypeStr&apos;, setValue, &apos;ZeroCross&apos;, ZeroCross);</initializationCode>
+        <skipInitializationCode>true</skipInitializationCode>
+      </masks>
+      <parentId>rocket:395</parentId>
+    </maskedBlocks>
+    <maskedBlocks type="slsa.mm.maskTree.MaskedBlock" uuid="a9a33b5a-e87b-4cb1-98d8-02eefa1eb86d">
+      <blockPath>rocket/Acceleration Conversion/Low-Pass Filter (Discrete or Continuous)1</blockPath>
+      <childrenIds>rocket:396:110</childrenIds>
+      <childrenIds>rocket:396:335</childrenIds>
+      <childrenIds>rocket:396:99</childrenIds>
+      <id>rocket:396</id>
+      <masks type="slsa.mm.maskTree.Mask" uuid="ff40fc49-dd72-4d4a-a500-9544b344283f">
+        <dialogParameters type="slsa.mm.maskTree.DialogParameterInfo" uuid="9177a1e2-21c2-4375-aa5c-f463c6cf702b">
+          <evaluate>true</evaluate>
+          <expression>1</expression>
+          <isTunable>true</isTunable>
+          <name>K</name>
+        </dialogParameters>
+        <dialogParameters type="slsa.mm.maskTree.DialogParameterInfo" uuid="a00f12c8-522f-4db8-b3ee-0e29ecfd7008">
+          <evaluate>true</evaluate>
+          <expression>10</expression>
+          <isTunable>true</isTunable>
+          <name>T</name>
+        </dialogParameters>
+        <dialogParameters type="slsa.mm.maskTree.DialogParameterInfo" uuid="2983bbc1-1e49-4b91-84db-4256c2ab6d07">
+          <evaluate>true</evaluate>
+          <expression>inf</expression>
+          <isTunable>true</isTunable>
+          <name>B</name>
+        </dialogParameters>
+        <dialogParameters type="slsa.mm.maskTree.DialogParameterInfo" uuid="16bb2f50-c8c7-4e25-b2a9-a7d603ef8a88">
+          <evaluate>true</evaluate>
+          <expression>-inf</expression>
+          <isTunable>true</isTunable>
+          <name>A</name>
+        </dialogParameters>
+        <dialogParameters type="slsa.mm.maskTree.DialogParameterInfo" uuid="8a014bf7-81bf-4088-a91a-834276f64fef">
+          <evaluate>true</evaluate>
+          <expression>1</expression>
+          <isTunable>true</isTunable>
+          <name>init_option</name>
+        </dialogParameters>
+        <dialogParameters type="slsa.mm.maskTree.DialogParameterInfo" uuid="ab660b68-9e19-4a67-acc4-306d0c4a9070">
+          <evaluate>true</evaluate>
+          <expression>0</expression>
+          <isTunable>true</isTunable>
+          <name>x0</name>
+        </dialogParameters>
+        <dialogParameters type="slsa.mm.maskTree.DialogParameterInfo" uuid="a2b7b81d-f6b7-4d55-9d6f-050559a02937">
+          <evaluate>true</evaluate>
+          <expression>0</expression>
+          <isTunable>true</isTunable>
+          <name>Ts</name>
+        </dialogParameters>
+        <initializationCode>timeDomain = ee.mask.initializeLowPassFilter(T,B,A,Ts);
+
+ee.mask.callbackPopupInitialization(gcb);</initializationCode>
+        <skipInitializationCode>true</skipInitializationCode>
+      </masks>
+      <parentId>root</parentId>
+    </maskedBlocks>
+    <maskedBlocks type="slsa.mm.maskTree.MaskedBlock" uuid="cfaf9cc0-f85a-40b2-bd7a-11f86f51e781">
+      <blockPath>rocket/Acceleration Conversion/Low-Pass Filter (Discrete or Continuous)1/Integrator (Discrete or Continuous)</blockPath>
+      <id>rocket:396:110</id>
+      <masks type="slsa.mm.maskTree.Mask" uuid="8f7879cb-8de5-43c6-80a3-4d7383e55c6c">
+        <cachedVariables type="slsa.mm.maskTree.Variable" uuid="2ebd2932-873d-4916-9897-26c64a3faf32">
+          <name>antiwindupLowerLimit</name>
+          <value>AAFJTQAAAAAOAAAAOAAAAAYAAAAIAAAABgAAAAAAAAAFAAAACAAAAAEAAAABAAAAAQAAAAAAAAAJAAAACAAAAAAAAAAAAPD/</value>
+        </cachedVariables>
+        <cachedVariables type="slsa.mm.maskTree.Variable" uuid="ff28fa05-f12b-475a-a22b-1933aa5b0f46">
+          <name>antiwindupUpperLimit</name>
+          <value>AAFJTQAAAAAOAAAAOAAAAAYAAAAIAAAABgAAAAAAAAAFAAAACAAAAAEAAAABAAAAAQAAAAAAAAAJAAAACAAAAAAAAAAAAPB/</value>
+        </cachedVariables>
+        <cachedVariables type="slsa.mm.maskTree.Variable" uuid="fd7c7792-502b-4c1a-976e-b55dc6376643">
+          <name>windupLowerLimit</name>
+          <value>AAFJTQAAAAAOAAAAOAAAAAYAAAAIAAAABgAAAAAAAAAFAAAACAAAAAEAAAABAAAAAQAAAAAAAAAJAAAACAAAAAAAAAAAAPD/</value>
+        </cachedVariables>
+        <cachedVariables type="slsa.mm.maskTree.Variable" uuid="39aa0e6e-b947-4f5e-9a88-060049b26163">
+          <name>windupUpperLimit</name>
+          <value>AAFJTQAAAAAOAAAAOAAAAAYAAAAIAAAABgAAAAAAAAAFAAAACAAAAAEAAAABAAAAAQAAAAAAAAAJAAAACAAAAAAAAAAAAPB/</value>
+        </cachedVariables>
+        <dialogParameters type="slsa.mm.maskTree.DialogParameterInfo" uuid="42f52c66-cda9-49db-a629-3543783c566e">
+          <evaluate>true</evaluate>
+          <expression>4</expression>
+          <isTunable>true</isTunable>
+          <name>ExternalReset</name>
+        </dialogParameters>
+        <dialogParameters type="slsa.mm.maskTree.DialogParameterInfo" uuid="97cf70b8-91c4-4b3d-8b46-295cee156e19">
+          <evaluate>true</evaluate>
+          <expression>1</expression>
+          <isTunable>true</isTunable>
+          <name>LimitType</name>
+        </dialogParameters>
+        <dialogParameters type="slsa.mm.maskTree.DialogParameterInfo" uuid="e649bf42-f958-490e-8a0b-589f7bb225e6">
+          <evaluate>true</evaluate>
+          <expression>B</expression>
+          <isTunable>true</isTunable>
+          <name>B</name>
+          <referencedVariables type="slsa.mm.maskTree.Variable" uuid="d66d0313-eb65-48fa-8a8b-289b43602d67">
+            <name>B</name>
+            <value></value>
+            <workspace>rocket:396</workspace>
+          </referencedVariables>
+        </dialogParameters>
+        <dialogParameters type="slsa.mm.maskTree.DialogParameterInfo" uuid="b5fb5fee-53f8-495e-88d7-c5b9cb21a98e">
+          <evaluate>true</evaluate>
+          <expression>A</expression>
+          <isTunable>true</isTunable>
+          <name>A</name>
+          <referencedVariables type="slsa.mm.maskTree.Variable" uuid="0963bc1f-8b17-4c16-ae60-29f672291fee">
+            <name>A</name>
+            <value></value>
+            <workspace>rocket:396</workspace>
+          </referencedVariables>
+        </dialogParameters>
+        <dialogParameters type="slsa.mm.maskTree.DialogParameterInfo" uuid="051679ab-d16e-42af-8d20-29cf3805de58">
+          <evaluate>true</evaluate>
+          <expression>Ts</expression>
+          <isTunable>true</isTunable>
+          <name>Ts</name>
+          <referencedVariables type="slsa.mm.maskTree.Variable" uuid="c445fdff-7bdf-4373-903d-5a35c94fba89">
+            <name>Ts</name>
+            <value></value>
+            <workspace>rocket:396</workspace>
+          </referencedVariables>
+        </dialogParameters>
+        <initializationCode>[timeDomain,antiwindupUpperLimit,antiwindupLowerLimit,windupUpperLimit,windupLowerLimit] = ee.mask.initializeIntegrator(gcb,LimitType,B,A,Ts);
+ee.mask.initializeIntegratorReset(gcb,ExternalReset,Ts);
+</initializationCode>
+      </masks>
+      <parentId>rocket:396</parentId>
+    </maskedBlocks>
+    <maskedBlocks type="slsa.mm.maskTree.MaskedBlock" uuid="ca5d4215-b978-42ce-820b-07ad993e49cf">
+      <blockPath>rocket/Acceleration Conversion/Low-Pass Filter (Discrete or Continuous)1/Enable//disable time constant/Compare To Constant</blockPath>
+      <id>rocket:396:335</id>
+      <masks type="slsa.mm.maskTree.Mask" uuid="ad6e36f3-0862-436c-8caa-aa934736aa5f">
+        <dialogParameters type="slsa.mm.maskTree.DialogParameterInfo" uuid="8acce8c3-71b3-4a62-b072-7a8dc978f229">
+          <expression>&lt;</expression>
+          <name>relop</name>
+        </dialogParameters>
+        <dialogParameters type="slsa.mm.maskTree.DialogParameterInfo" uuid="5c0808c9-46c8-49ab-b159-25a1b5100667">
+          <evaluate>true</evaluate>
+          <expression>2</expression>
+          <isTunable>true</isTunable>
+          <name>const</name>
+        </dialogParameters>
+        <dialogParameters type="slsa.mm.maskTree.DialogParameterInfo" uuid="602080a9-aefb-4b16-b427-32e232238cf4">
+          <expression>boolean</expression>
+          <name>OutDataTypeStr</name>
+        </dialogParameters>
+        <dialogParameters type="slsa.mm.maskTree.DialogParameterInfo" uuid="3142be6d-e679-4e08-b8bc-e2c958bbdf78">
+          <expression>on</expression>
+          <name>ZeroCross</name>
+        </dialogParameters>
+        <initializationCode>blkName = gcb;
+
+if strcmp(get_param(gcbh,&apos;OutDataTypeStr&apos;),&apos;boolean&apos;)
+	setValue = &apos;boolean&apos;;
+else
+	setValue = &apos;fixdt(0, 8, 0)&apos;;
+end
+
+set_param([blkName,&apos;/Compare&apos;],&apos;relop&apos;,relop, ...
+	&apos;OutDataTypeStr&apos;, setValue, &apos;ZeroCross&apos;, ZeroCross);
+
+str = [relop,&apos; C&apos;]; %default
+
+const_str = get_param(blkName, &apos;const&apos;);
+const_val = str2num(const_str);
+
+if isempty(const_val) %#ok&lt;ST2NM&gt;
+    %Expression/Variable
+    str = [relop, &apos; &apos;, strtrim(const_str)];
+else
+    if length(const_val) == 1 
+        if Simulink.data.isSupportedEnumClass(class(const_val))
+            % Special Handling for Enumerations
+            if Simulink.data.getEnumTypeInfo(class(const_val), &apos;AddClassNameToEnumNames&apos;)
+                str = [relop, &apos; &apos;, strtrim(const_str)];
+            else
+                str = [relop, &apos; &apos;, char(const_val)];
+            end
+        elseif(isfloat(const_val) || isinteger(const_val) || islogical(const_val)) 
+                str = [relop, &apos; &apos;, num2str(const_val)];
+        end
+    end
+end</initializationCode>
+        <skipInitializationCode>true</skipInitializationCode>
+      </masks>
+      <parentId>rocket:396</parentId>
+    </maskedBlocks>
+    <maskedBlocks type="slsa.mm.maskTree.MaskedBlock" uuid="79855e5e-f9dd-43bd-9cea-e6cac3df1353">
+      <blockPath>rocket/Acceleration Conversion/Low-Pass Filter (Discrete or Continuous)1/Enable//disable time constant/Compare To Zero</blockPath>
+      <id>rocket:396:99</id>
+      <masks type="slsa.mm.maskTree.Mask" uuid="2a10d26c-19c6-44cb-a5b0-0f46bbeaacf2">
+        <dialogParameters type="slsa.mm.maskTree.DialogParameterInfo" uuid="6207696c-4402-4bc7-9880-e0f90b73f943">
+          <expression>&lt;=</expression>
+          <name>relop</name>
+        </dialogParameters>
+        <dialogParameters type="slsa.mm.maskTree.DialogParameterInfo" uuid="b1639d76-4bdc-431c-980c-c71719361ff3">
+          <expression>boolean</expression>
+          <name>OutDataTypeStr</name>
+        </dialogParameters>
+        <dialogParameters type="slsa.mm.maskTree.DialogParameterInfo" uuid="72647eb4-078a-4bde-b55f-abde948cc994">
+          <expression>on</expression>
+          <name>ZeroCross</name>
+        </dialogParameters>
+        <initializationCode>blkName = gcb;
+
+if strcmp(get_param(gcbh,&apos;OutDataTypeStr&apos;),&apos;boolean&apos;)
+	setValue = &apos;boolean&apos;;
+else
+    setValue = &apos;fixdt(0, 8, 0)&apos;;
+end
+
+set_param([blkName,&apos;/Compare&apos;],&apos;relop&apos;,relop, ...
+	&apos;OutDataTypeStr&apos;, setValue, &apos;ZeroCross&apos;, ZeroCross);</initializationCode>
+        <skipInitializationCode>true</skipInitializationCode>
+      </masks>
+      <parentId>rocket:396</parentId>
+    </maskedBlocks>
+    <maskedBlocks type="slsa.mm.maskTree.MaskedBlock" uuid="6e70391f-2cce-48c0-b46d-f550f6cf19c2">
+      <childrenIds>rocket:395</childrenIds>
+      <childrenIds>rocket:396</childrenIds>
       <id>root</id>
     </maskedBlocks>
-    <flags type="slsa.mm.maskTree.MaskTreeFlags" uuid="4466eda3-aa2e-4816-86e2-80cd991c9a42"/>
+    <flags type="slsa.mm.maskTree.MaskTreeFlags" uuid="379ca218-a549-4530-bc4e-39498e8408be"/>
   </slsa.mm.maskTree.MaskTree>
 </MF0>
